@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./CSS/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>My Portfolio Website</title>
+        <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+    --primaryTextColor: #eee;
+    --secondaryTextColor: #971549;
+    --firstBackgroundColor: #171a2b;
+    --secondBackgroundColor: #1b1f3aee;
+    --hoverColor: #be4b79;
+    /* Hide Scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+:root::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Placeholders Text Color */
+
+::placeholder {
+    color: #999;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+}
+
+::-ms-input-placeholder {
+    color: #999;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+button i {
+    font-size: 2rem;
+}
+
+.btn {
+    margin-top: 100px;
+    font-size: 1.3rem;
+    background-color: var(--secondaryTextColor);
+    width: 200px;
+    height: 70px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: var(--primaryTextColor);
+    transition: 0.4s;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--hoverColor);
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+.btn:hover {
+    color: #020202;
+}
+
+body {
+    line-height: 2;
+    color: var(--primaryTextColor);
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(6deg, #1b1f3ade, #1b1f3ad2),
+        url("https://marvel-b1-cdn.bc0a.com/f00000000222112/www.economicmodeling.com/wp-content/uploads/2017/03/pexels-photo-160107-1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Navbar */
+
+nav {
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--secondBackgroundColor);
+}
+
+nav button {
+    color: var(--firstTextColor);
+    display: none;
+}
+
+nav button:active {
+    color: var(--hoverColor);
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    transition: 0.5s;
+}
+
+.nav-links a {
+    color: var(--firstTextColor);
+    font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+    color: var(--secondaryTextColor);
+}
+
+/* Home page */
+
+.home-content .home-text {
+    line-height: 1.2;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    z-index: 1;
+}
+
+.coloredText {
+    color: var(--secondaryTextColor);
+}
+
+.home-content figure {
+    min-width: 500px;
+    width: 40%;
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+}
+
+.home-content figure img {
+    width: 100%;
+    opacity: 0.6;
+    display: block;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: scrolling;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.scroll i {
+    font-size: 3rem;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+/* Defualt styles for all pages */
+
+main .page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--firstBackgroundColor);
+    position: relative;
+}
+
+.page:nth-child(2n) {
+    background-color: var(--secondBackgroundColor);
+}
+
+.page .container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 110px 0;
+}
+
+.container > h3 {
+    display: table;
+    width: fit-content;
+    margin-bottom: 5rem;
+    border-bottom: var(--secondaryTextColor) 1px solid;
+    text-transform: uppercase;
+}
+
+/* Page 1 */
+
+#page-1 .aboutMe {
+    display: flex;
+    gap: 4em;
+}
+
+.aboutMe figure {
+    flex-basis: 40%;
+    height: fit-content;
+    border: #bbbbbb 1px solid;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+#page-1 img {
+    width: 100%;
+    display: block;
+}
+
+#page-1 .downloadCV {
+    display: flex;
+}
+
+#page-1 .downloadCV span {
+    display: block;
+    margin: auto;
+}
+
+.aboutMe h4 {
+    color: #fff;
+    font-size: 1.6rem;
+    padding-bottom: 2rem;
+}
+
+.aboutMe article {
+    flex-basis: 60%;
+    color: #ddd;
+}
+
+/* Page 2 */
+
+#page-2 .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.services li {
+    min-height: 350px;
+    background-color: var(--firstBackgroundColor);
+    padding: 1.5rem;
+    flex-basis: 45%;
+    display: flex;
+    gap: 1rem;
+    border-radius: 5px;
+}
+
+.services i {
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 0 1rem 1rem 0;
+    height: fit-content;
+    border-radius: 3px;
+    background-color: var(--secondaryTextColor);
+}
+
+.services h4 {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.services p {
+    color: #bbb;
+}
+
+/* Page 3 */
+
+#page-3 ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#page-3 .project {
+    width: 21vw;
+    height: 28vw;
+}
+
+.project .project_Image {
+    height: 75%;
+    overflow: hidden;
+    position: relative;
+}
+
+#page-3 img {
+    width: 100%;
+    height: 80%;
+}
+
+.project_Image .project-links {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 26, 43, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transform: translateX(-110%);
+}
+
+.project:hover .project-links {
+    transform: none;
+}
+
+.project-links a {
+    position: relative;
+    width: 80px;
+    height: 60px;
+    background-color: var(--hoverColor);
+    color: #000000;
+    margin: 2px;
+    font-size: 1.3rem;
+}
+
+.project-links a:hover {
+    color: var(--primaryTextColor);
+}
+
+.project-links a > i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.project h4 {
+    padding: 1rem 0;
+    font-size: 1.4rem;
+}
+
+/* Page 4 */
+
+#page-4 {
+    min-height: 0;
+    padding-bottom: 100px;
+}
+
+#page-4 .contact {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.contact form {
+    flex-basis: 60%;
+}
+
+.contact form > .row {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.row input,
+.row textarea {
+    font-size: 1.1rem;
+    padding: 1rem;
+    background: transparent;
+    border: #000000 1px solid;
+    border-radius: 5px;
+    flex-grow: 1;
+    outline: none;
+    color: var(--primaryTextColor);
+    resize: vertical;
+}
+
+.contact h4 {
+    font-size: 1.5rem;
+}
+.contact > div {
+    margin-left: 2rem;
+}
+
+.contactInfo li {
+    margin-top: 1rem;
+}
+
+.contactInfo i {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2rem;
+    color: var(--hoverColor);
+}
+
+.contactInfo span {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+
+footer {
+    background-color: #000000;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer .social-medias {
+    display: flex;
+    gap: 1rem;
+}
+
+footer .social-medias a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--primaryTextColor);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+footer .social-medias a:hover {
+    background-color: var(--secondBackgroundColor);
+}
+
+.copyright p {
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 1300px) {
+    .page .container {
+        width: 90%;
+    }
+    #page-3 .project {
+        width: 33vw;
+        height: 44vw;
+    }
+    #page-4 .contact {
+        flex-direction: column-reverse;
+    }
+    .contact > div {
+        margin-left: 0;
+    }
+    .contactInfo {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .contactInfo li {
+        display: inline-block;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+    nav {
+        height: 70px;
+    }
+
+    nav button {
+        display: inline-block;
+    }
+
+    nav ul {
+        position: fixed;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        padding: 10% 5%;
+        background-color: #111;
+        width: 50%;
+        height: 100%;
+        gap: 1rem;
+    }
+
+    .hideNavbar {
+        transform: translateX(-100vw);
+    }
+
+    .cover {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        transition: 0.5s;
+        opacity: 0.5;
+        z-index: 100;
+    }
+
+    .hidenCover {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #page-1 .aboutMe {
+        flex-direction: column;
+    }
+
+    .aboutMe figure {
+        min-width: 200px;
+        width: 70%;
+    }
+    .services li {
+        flex-basis: 47%;
+    }
+    #page-3 .project {
+        width: 36vw;
+        height: 48vw;
+    }
+
+    .project h4 {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        margin-top: 50px;
+    }
+    nav ul {
+        width: 70%;
+    }
+    .nav-links a {
+        font-size: 1rem;
+    }
+    .services li {
+        flex-basis: 80%;
+    }
+    #page-3 .project {
+        width: 60vw;
+        height: 80vw;
+    }
+    .contactInfo li {
+        display: block;
+    }
+    .contact form > .row {
+        flex-direction: column;
+    }
+
+    .contact form .btn {
+        align-self: center;
+    }
+
+    footer {
+        height: 150px;
+        flex-direction: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .home-content figure img {
+        display: none;
+    }
+    .services li {
+        flex-basis: 100%;
+    }
+    .services h4 {
+        font-size: 1.3rem;
+    }
+
+    #page-3 .project {
+        width: 75vw;
+        height: 100vw;
+    }
+
+    .project h4 {
+        font-size: 1em;
+    }
+
+    .contactInfo span {
+        font-size: 1.1rem;
+    }
+
+    footer .social-medias {
+        gap: 0;
+    }
+}
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div>
+                    <h3>Welcome</h3>
+                </div>
+                <ul class="hideNavbar">
+                    <li class="nav-links"><a href="#Home">Home</a></li>
+                    <li class="nav-links"><a href="#page-1">About</a></li>
+                    <li class="nav-links"><a href="#page-2">Education</a></li>
+                    <li class="nav-links"><a href="#page-3">Skills</a></li>
+                    <li class="nav-links"><a href="#page-4">Contact</a></li>
+                </ul>
+                <button>
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            <section id="Home" class="home-content">
+                <div class="home-text">
+                  
+                    <h1>I'm </h1>
+                    <h1> <span class="coloredText">Sahana Naganoor</span></h1>
+                    <h3>Full Stack Developer</h3>
+                    
+                </div>
+                <figure>
+                    <img src="" >
+                </figure>
+                <div class="scroll">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+            </section>
+            <div class="cover hidenCover"></div>
+        </header>
+        <main>
+            <section id="page-1" class="page">
+                <div class="container">
+                    <h3>About me</h3>
+                    <div class="aboutMe">
+                        <figure>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSdCASC1tAOe8Fm-SWVUIEjtWMVYUaIUXpUA&usqp=CAU" />
+                        </figure>
+                        <article>
+                            <h4>
+                                Sahana Naganoor
+                               <br> <span class="coloredText"> Full Stack Developer</span>
+                            </h4>
+                            <p>
+                                Hi.. My Name is Sahana Naganoor from Belgaum. 
+                                 I am currently working as Software Engineer at Torry Haris.
+                            </p>
+                            <a
+                                href="sample.pdf"
+                                class="btn downloadCV"
+                                download="yourCV.pdf"
+                            >
+                                <span>Download CV</span></a
+                            >
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="page-2" class="page">
+                <div class="container">
+                    <h3>Education</h3>
+                    <ul class="Education">
+                        <li>
+                            <div>
+                                <title>Font Awesome Icons</title>
+                                <meta name="viewport" content="width=device-width, initial-scale=1">
+                                <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+                                <!--Get your own code at fontawesome.com-->
+                                 <i class="fas fa-school" style="font-size:28px;color:red;"></i>
+                                
+                                <h2>School</h2>
+                                <h3>
+                                  St.Joseph's Convent High School,Belgaum.
+                                </h3>
+                            </div>
+                        </li>
+                        <br>
+                        <br>
+
+                        <li>
+                            <div>
+                                <i class="fas fa-university" style="font-size:28px;color:red;"></i>
+                                <h2>PU College</h2>
+                                <h3>
+                                      Mahesh PU College,Belgaum.
+                                </h3>
+                            </div>
+                        </li>
+                        <br>
+                        <br>
+
+                        <li>
+                            <div>
+                                <i class="fas fa-graduation-cap" style="font-size:28px;color:red;"></i>
+                                <h2>B.TECH</h2>
+                               <h3>
+                                   Jain College of Engineering,Belgaum.
+                               </h3>
+                            </div>
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            <div>
+                                <i class="fas fa-laptop-code" style="font-size:28px;color:red;"></i>
+                                <h2>Work</h2>
+                               <h3>
+                                  Software Engineer at Torry Haris.
+                               </h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="page-3" class="page">
+                <div class="container">
+                    <h3>Skills</h3>
+                    
+                    <ul>
+
+                        <li class="project">
+                            <h4>HTML </h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-SxGs6vaHltZUXQkD4BnKiUT52nJ7-A8T9w&usqp=CAU"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                        HTML stands for Hyper Text Markup Language.
+                                        It is the standard markup language for creating Web pages.
+                                        It describes the structure of a Web page. 
+                                     
+                                         
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+                        <li class="project">
+                            <h4>CSS</h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="https://aux4.iconspalace.com/uploads/7023585511093431377.png"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                        
+                                      CSS stands for Cascading Style Sheets
+                                     It describes how HTML elements are  <br> to be displayed on screen, paper, or in other media
+                                     It can control the layout of multiple web pages all at once
+                                     External stylesheets are stored in CSS files
+
+                                         
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+                        <li class="project">
+                            <h4>JAVA SCRIPT </h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="https://icons.iconarchive.com/icons/graphics-vibe/developer/256/javascript-icon.png"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                        
+                                        JavaScript is a scripting or programming language that allows
+                                         you to implement complex features on web pages.
+
+                                         
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+
+
+                        <li class="project">
+                            <h4>JAVA</h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zWOPZAkT2k6noG1GpXV0DfF8AmF3H7_Jxw&usqp=CAU"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                        Java is a general-purpose, class-based, <br> object-oriented
+                                         programming language <br> designed for having lesser
+                                         implementation dependencies. 
+                                         It is a computing platform for application development. 
+                                         Java is fast, secure, <br>  and reliable, therefore.
+                                         
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+                        <li class="project">
+                            <h4>MY SQL </h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="data:image/png;base64,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"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                        MySQL is a relational database management system (RDBMS) developed by Oracle that is based 
+                                        on <br>  structured query language (SQL). <br> 
+                                        A database is a structured collection of data
+                                         
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+                        <li class="project">
+                            <h4>SPRING BOOT </h4>
+                            <figure class="project_Image">
+                                <img
+                                    src="data:image/png;base64,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"
+                                />
+                                <div class="project-links">
+                                    <p style= "color:yellow; font-size: 22px;" >
+                                      
+                                        Spring Boot is an open-source micro framework maintained by a company called Pivotal. 
+                                        It provides Java developers with a platform to get started with an auto configurable production-grade Spring application. .
+                                    </p>
+                                </div>
+                            </figure>
+                           
+                        </li>
+
+
+                       
+                    </ul>
+                </div>
+            </section>
+            <section id="page-4" class="page">
+                <div class="container">
+                    <h3>Contact Me</h3>
+                    <div class="contact">
+                        <form action="#">
+                            <h4>Message Me</h4>
+                            <div class="row">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                />
+                            </div>
+                            <div class="row">
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    placeholder="Enter subject"
+                                />
+                            </div>
+                            <div class="row">
+                                <textarea
+                                    name="message"
+                                    placeholder="Enter your message"
+                                    cols="30"
+                                    rows="10"
+                                ></textarea>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="btn">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                        <div>
+                            <h4>Contact info</h4>
+                            <ul class="contactInfo">
+                                <li>
+                                    <i class="fas fa-phone-square-alt"></i
+                                    ><span>+91-9008978787</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i
+                                    ><span>sahana@gmail.com</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Belgaum,Karnataka.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="copyright">
+                    <p>THANK YOU</p>
+                </div>
+                <div class="social-medias">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </footer>
+        </main>
+        <script src="JS/script.js"></script>
+    </body>
+</html>
+
+   
